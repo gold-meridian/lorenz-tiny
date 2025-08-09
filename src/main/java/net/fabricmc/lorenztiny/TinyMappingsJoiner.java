@@ -88,7 +88,13 @@ public class TinyMappingsJoiner extends MappingsReader {
 		for (final MappingTree.ClassMapping classA : this.treeA.getClasses()) {
 			final MappingTree.ClassMapping classB = classes.get(classA.getName(this.matchB));
 
-			final ClassMapping<?, ?> klass = mappings.getOrCreateClassMapping(classA.getName(this.from));
+			String classAName = classA.getName(this.from);
+			if (classAName == null) {
+				classAName = classA.getSrcName();
+			}
+
+			final ClassMapping<?, ?> klass = mappings.getOrCreateClassMapping(classAName);
+
 			if (classB != null) {
 				String deobfName = classB.getName(this.to);
 
