@@ -24,21 +24,22 @@
 
 package net.fabricmc.lorenztiny;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.Writer;
-import net.fabricmc.mappingio.MappingReader;
-import net.fabricmc.mappingio.tree.MappingTree;
-import net.fabricmc.mappingio.tree.MemoryMappingTree;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import org.cadixdev.lorenz.MappingSet;
 import org.cadixdev.lorenz.io.MappingFormat;
 import org.cadixdev.lorenz.io.MappingsReader;
 import org.cadixdev.lorenz.io.MappingsWriter;
 import org.cadixdev.lorenz.model.Mapping;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import net.fabricmc.mappingio.MappingReader;
+import net.fabricmc.mappingio.tree.MappingTree;
+import net.fabricmc.mappingio.tree.MemoryMappingTree;
 
 /**
  * A helper class for working with Tiny mappings with Lorenz,
@@ -102,8 +103,8 @@ public enum TinyMappingFormat {
 	 * the de-obfuscated names in Lorenz).
 	 *
 	 * @param writer The {@link Writer} to write the mappings to
-	 * @param from The namespace to place the obfuscated names under
-	 * @param to The namespace to place the deobfuscated names under
+	 * @param from   The namespace to place the obfuscated names under
+	 * @param to     The namespace to place the deobfuscated names under
 	 * @return The mappings writer
 	 * @since 3.0.0
 	 */
@@ -120,9 +121,9 @@ public enum TinyMappingFormat {
 	 * the de-obfuscated names in Lorenz).
 	 *
 	 * @param mappings The mappings to write
-	 * @param path The file to write the mappings to
-	 * @param from The namespace to place the obfuscated names under
-	 * @param to The namespace to place the deobfuscated names under
+	 * @param path     The file to write the mappings to
+	 * @param from     The namespace to place the obfuscated names under
+	 * @param to       The namespace to place the deobfuscated names under
 	 * @throws IOException if an I/O error occurs writing the file
 	 * @since 3.0.0
 	 */
@@ -149,7 +150,7 @@ public enum TinyMappingFormat {
 	 * @throws IOException if an I/O error occurs opening the file
 	 */
 	public MappingsReader createReader(final Path path,
-	                                   final String from, final String to) throws IOException {
+									   final String from, final String to) throws IOException {
 		try (final BufferedReader reader = Files.newBufferedReader(path)) {
 			return new TinyMappingsReader(this.load(reader), from, to);
 		}
@@ -163,16 +164,16 @@ public enum TinyMappingFormat {
 	 * de-obfuscated names in Lorenz).
 	 *
 	 * @param mappings The mapping set to read to
-	 * @param path The path to the Tiny mappings
-	 * @param from The namespace to use in the tiny file, as Lorenz's
-	 *             obfuscated names
-	 * @param to   The namespace to use in the tiny file, as Lorenz's
-	 *             de-obfuscated names
+	 * @param path     The path to the Tiny mappings
+	 * @param from     The namespace to use in the tiny file, as Lorenz's
+	 *                 obfuscated names
+	 * @param to       The namespace to use in the tiny file, as Lorenz's
+	 *                 de-obfuscated names
 	 * @return The given mapping set
 	 * @throws IOException if an I/O error occurs opening the file
 	 */
 	public MappingSet read(final MappingSet mappings, final Path path,
-	                       final String from, final String to) throws IOException {
+						   final String from, final String to) throws IOException {
 		try (final MappingsReader reader = this.createReader(path, from, to)) {
 			reader.read(mappings);
 		}
@@ -195,7 +196,7 @@ public enum TinyMappingFormat {
 	 * @throws IOException if an I/O error occurs opening the file
 	 */
 	public MappingSet read(final Path path,
-	                       final String from, final String to) throws IOException {
+						   final String from, final String to) throws IOException {
 		return this.read(MappingSet.create(), path, from, to);
 	}
 

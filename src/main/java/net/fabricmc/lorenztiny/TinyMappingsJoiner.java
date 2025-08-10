@@ -24,13 +24,14 @@
 
 package net.fabricmc.lorenztiny;
 
-import net.fabricmc.mappingio.tree.MappingTree;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.cadixdev.lorenz.MappingSet;
 import org.cadixdev.lorenz.io.MappingsReader;
 import org.cadixdev.lorenz.model.ClassMapping;
 
-import java.util.HashMap;
-import java.util.Map;
+import net.fabricmc.mappingio.tree.MappingTree;
 
 /**
  * A {@link MappingsReader mappings reader} for reading mappings
@@ -51,7 +52,7 @@ public class TinyMappingsJoiner extends MappingsReader {
 	private final String matchB;
 
 	public TinyMappingsJoiner(final MappingTree treeA, final String from, final String matchA,
-	                          final MappingTree treeB, final String to, final String matchB) {
+							  final MappingTree treeB, final String to, final String matchB) {
 		this.treeA = treeA;
 		this.from = from;
 		this.matchA = matchA;
@@ -61,8 +62,8 @@ public class TinyMappingsJoiner extends MappingsReader {
 	}
 
 	public TinyMappingsJoiner(final MappingTree treeA, final String from,
-	                          final MappingTree treeB, final String to,
-	                          final String match) {
+							  final MappingTree treeB, final String to,
+							  final String match) {
 		this(treeA, from, match, treeB, to, match);
 	}
 

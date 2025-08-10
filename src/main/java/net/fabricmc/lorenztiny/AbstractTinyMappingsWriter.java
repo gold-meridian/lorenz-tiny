@@ -27,6 +27,7 @@ package net.fabricmc.lorenztiny;
 import java.io.BufferedWriter;
 import java.io.PrintWriter;
 import java.io.Writer;
+
 import org.cadixdev.bombe.type.FieldType;
 import org.cadixdev.lorenz.io.MappingsWriter;
 import org.cadixdev.lorenz.model.FieldMapping;

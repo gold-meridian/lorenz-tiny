@@ -27,6 +27,7 @@ package net.fabricmc.lorenztiny;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.cadixdev.lorenz.MappingSet;
 import org.cadixdev.lorenz.io.MappingsWriter;
 import org.cadixdev.lorenz.model.ClassMapping;

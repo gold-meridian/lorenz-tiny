@@ -26,6 +26,7 @@ package net.fabricmc.lorenztiny;
 
 import java.io.Writer;
 import java.util.Comparator;
+
 import org.cadixdev.lorenz.MappingSet;
 import org.cadixdev.lorenz.model.ClassMapping;
 import org.cadixdev.lorenz.model.FieldMapping;

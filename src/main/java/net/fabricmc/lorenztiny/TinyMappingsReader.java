@@ -24,19 +24,19 @@
 
 package net.fabricmc.lorenztiny;
 
-import net.fabricmc.mappingio.tree.MappingTree;
 import org.cadixdev.lorenz.MappingSet;
 import org.cadixdev.lorenz.io.MappingsReader;
 import org.cadixdev.lorenz.model.ClassMapping;
 import org.cadixdev.lorenz.model.MethodMapping;
 
+import net.fabricmc.mappingio.tree.MappingTree;
+
 /**
  * A {@link MappingsReader mappings reader} for Fabric's Tiny
  * format.
- * 
- * @see TinyMappingFormat
  *
  * @author Jamie Mansfield
+ * @see TinyMappingFormat
  * @since 2.0.0
  */
 public class TinyMappingsReader extends MappingsReader {
